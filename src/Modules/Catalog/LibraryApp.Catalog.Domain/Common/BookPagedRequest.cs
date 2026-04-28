@@ -1,6 +1,6 @@
 namespace LibraryApp.Catalog.Domain.Common;
 
-public class BookPagedRequest
+public class BookPagedRequest : PagedRequest
 {
-    
+    public Guid? AuthorId { get; set; }
 }

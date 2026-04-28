@@ -7,21 +7,22 @@ namespace LibraryApp.Catalog.Domain.Entities;
 public class Book : Entity<Guid>
 {
     public string Title { get; private set; } = string.Empty;
-    public string Author { get; private set; } = string.Empty;
+    public Guid AuthorId { get; private set; }
+    public Author Author { get; private set; }
     public bool IsAvailable { get; private set; }
 
     private Book()
     {
     }
 
-    public static Book Create(string title, string author, bool isAvailable)
+    public static Book Create(Guid authorId, string title, bool isAvailable)
     {
-        ValidateInitialData(title, author);
+        ValidateTitle(title);
         var book = new Book
         {
             Id = Guid.NewGuid(),
+            AuthorId = authorId,
             Title = title,
-            Author = author,
             IsAvailable = isAvailable
         };
         
@@ -35,30 +36,14 @@ public class Book : Entity<Guid>
         ValidateTitle(title);
         Title = title;
     }
-
-    public void SetAuthor(string author)
-    {
-        ValidateAuthor(author);
-        Author = author;
-    }
+    
     
     public void MarkAsAvailable() => IsAvailable = true;
     public void MarkAsUnavailable() => IsAvailable = false;
     
-    
-    private static void ValidateInitialData(string title, string author)
-    {
-        ValidateTitle(title);
-        ValidateAuthor(author);
-    }
 
     private static void ValidateTitle(string title)
     {
         if (string.IsNullOrWhiteSpace(title)) throw new DomainException("Title is required");
-    }
-
-    private static void ValidateAuthor(string author)
-    {
-        if (string.IsNullOrWhiteSpace(author)) throw new DomainException("Author is required");
     }
 }

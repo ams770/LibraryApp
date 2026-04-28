@@ -4,7 +4,7 @@ using LibraryApp.Catalog.Domain.interfaces;
 using LibraryApp.Shared.Domain;
 using MediatR;
 
-namespace LibraryApp.Catalog.Application.Authors.Commands;
+namespace LibraryApp.Catalog.Application.Authors.Commands.AddAuthor;
 
 public class AddAuthorService(IUnitOfWork unitOfWork, IAuthorRepo authorRepo)
     : IRequestHandler<AddAuthorCommand, Result<Guid>>

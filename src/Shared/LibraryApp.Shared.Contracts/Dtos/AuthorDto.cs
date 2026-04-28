@@ -1,6 +1,3 @@
 namespace LibraryApp.Shared.Contracts.Dtos;
 
-public class AuthorDto
-{
-    
-}
+public record AuthorDto(Guid Id,  string FullName);

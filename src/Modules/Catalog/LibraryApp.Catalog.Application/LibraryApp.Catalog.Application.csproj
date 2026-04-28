@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\LibraryApp.Shared.Contracts\LibraryApp.Shared.Contracts.csproj" />
     <ProjectReference Include="..\LibraryApp.Catalog.Domain\LibraryApp.Catalog.Domain.csproj" />
   </ItemGroup>
 
@@ -9,8 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Book\Queries\" />
-    <Folder Include="Interfaces\" />
+    <Folder Include="Common\" />
   </ItemGroup>
 
   <PropertyGroup>

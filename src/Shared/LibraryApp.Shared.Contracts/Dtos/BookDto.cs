@@ -1,8 +1,8 @@
-namespace LibraryApp.Shared.Contracts;
+namespace LibraryApp.Shared.Contracts.Dtos;
 
 public record BookDto(
     Guid Id,
     string Title,
-    string Author,
-    bool IsAvailable
+    bool IsAvailable,
+    AuthorDto Author
 );

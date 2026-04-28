@@ -4,16 +4,16 @@ using LibraryApp.Catalog.Domain.interfaces;
 using LibraryApp.Shared.Domain;
 using MediatR;
 
-namespace LibraryApp.Catalog.Application.Authors.Commands.AddAuthor;
+namespace LibraryApp.Catalog.Application.Authors.Commands.EditAuthor;
 
-public class AddAuthorService(IUnitOfWork unitOfWork, IAuthorRepo authorRepo)
-    : IRequestHandler<AddAuthorCommand, Result<Guid>>
+public class EditAuthorService(IUnitOfWork unitOfWork, IAuthorRepo authorRepo)
+    : IRequestHandler<EditAuthorCommand, Result<object>>
 {
-    public async Task<Result<Guid>> Handle(AddAuthorCommand request, CancellationToken cancellationToken)
+    public async Task<Result<object>> Handle(EditAuthorCommand request, CancellationToken cancellationToken)
     {
         var author = Author.Create(request.FullName);
         await authorRepo.AddAsync(author);
         await unitOfWork.SaveChangesAsync();
-        return Result<Guid>.Success(author.Id);
+        return Result<object>.Success(null);
     }
 }

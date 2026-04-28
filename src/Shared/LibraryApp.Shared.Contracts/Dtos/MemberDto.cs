@@ -1,4 +1,4 @@
-namespace LibraryApp.Shared.Contracts;
+namespace LibraryApp.Shared.Contracts.Dtos;
 
 public record MemberDto(
     Guid Id,

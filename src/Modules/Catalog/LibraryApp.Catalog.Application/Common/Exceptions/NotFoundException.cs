@@ -1,3 +1,3 @@
-namespace TicketSystem.Application.Common.Exceptions;
+namespace LibraryApp.Catalog.Application.Common.Exceptions;
 
 public class NotFoundException(string entity, Guid id) : Exception($"{entity} with id '{id}' was not found.");

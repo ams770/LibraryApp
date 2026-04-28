@@ -1,6 +1,6 @@
 using LibraryApp.Shared.Domain;
 using MediatR;
 
-namespace LibraryApp.Catalog.Application.Authors.Commands.AddAuthor;
+namespace LibraryApp.Catalog.Application.Authors.Commands.EditAuthor;
 
-public record AddAuthorCommand(string FullName) : IRequest<Result<Guid>>;
+public record EditAuthorCommand(string FullName) : IRequest<Result<object>>;
