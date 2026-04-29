@@ -11,7 +11,9 @@ public class MarkBookAsAvailableService(IUnitOfWork unitOfWork, IBookRepo bookRe
 {
     public async Task<Result<Guid>> Handle(MarkBookAsAvailableCommand request, CancellationToken cancellationToken)
     {
-        var book = await bookRepo.GetByIdAsync(request.BookId) ?? throw new NotFoundException(nameof(Book), request.BookId);
+
+        var book = await bookRepo.GetByIdAsync(request.BookId);
+        if(book is null) return Result<Guid>.Failure("Book not found");
         book.MarkAsAvailable();
         await unitOfWork.SaveChangesAsync();
         return Result<Guid>.Success(book.Id);

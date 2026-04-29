@@ -1,7 +1,7 @@
 using LibraryApp.Shared.Contracts.Dtos;
-using LibraryApp.Shared.Domain.Entities;
 
-namespace LibraryApp.Catalog.Application.Interfaces;
+using LibraryApp.Shared.Contracts.Primitives;
+namespace LibraryApp.Catalog.Contracts;
 
 public interface ICatalogService
 {
