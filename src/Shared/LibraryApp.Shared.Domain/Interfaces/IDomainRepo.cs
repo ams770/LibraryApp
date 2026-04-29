@@ -1,6 +1,6 @@
-using LibraryApp.Catalog.Domain.Common;
 
-namespace LibraryApp.Catalog.Domain.interfaces;
+
+namespace LibraryApp.Shared.Domain;
 
 public interface IDomainRepo<T>
 {
