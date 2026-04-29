@@ -1,4 +1,4 @@
-using LibraryApp.Shared.Domain;
+using LibraryApp.Shared.Domain.Entities;
 using MediatR;
 
 namespace LibraryApp.Catalog.Application.Books.Commands.AddBook;

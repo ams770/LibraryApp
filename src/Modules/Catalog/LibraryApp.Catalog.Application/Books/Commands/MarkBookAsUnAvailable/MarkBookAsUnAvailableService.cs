@@ -5,11 +5,11 @@ using LibraryApp.Catalog.Domain.interfaces;
 using LibraryApp.Shared.Domain.Entities;
 using MediatR;
 
-namespace LibraryApp.Catalog.Application.Books.Commands.MarkBookAsAvailable;
+namespace LibraryApp.Catalog.Application.Books.Commands.MarkBookAsUnAvailable;
 
-public class MarkBookAsAvailableService(IUnitOfWork unitOfWork, IBookRepo bookRepo) : IRequestHandler<MarkBookAsAvailableCommand, Result<Guid>>
+public class MarkBookAsUnAvailableService(IUnitOfWork unitOfWork, IBookRepo bookRepo) : IRequestHandler<MarkBookAsUnAvailableCommand, Result<Guid>>
 {
-    public async Task<Result<Guid>> Handle(MarkBookAsAvailableCommand request, CancellationToken cancellationToken)
+    public async Task<Result<Guid>> Handle(MarkBookAsUnAvailableCommand request, CancellationToken cancellationToken)
     {
         var book = await bookRepo.GetByIdAsync(request.BookId) ?? throw new NotFoundException(nameof(Book), request.BookId);
         book.MarkAsAvailable();

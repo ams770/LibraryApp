@@ -1,4 +1,6 @@
-namespace LibraryApp.Shared.Domain;
+using LibraryApp.Shared.Domain.Interfaces;
+
+namespace LibraryApp.Shared.Domain.Entities;
 
 public abstract class Entity<TId>
 {

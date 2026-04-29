@@ -2,7 +2,7 @@ using LibraryApp.Catalog.Application.Common.Exceptions;
 using LibraryApp.Catalog.Application.Interfaces;
 using LibraryApp.Catalog.Domain.Entities;
 using LibraryApp.Catalog.Domain.interfaces;
-using LibraryApp.Shared.Domain;
+using LibraryApp.Shared.Domain.Entities;
 using MediatR;
 
 namespace LibraryApp.Catalog.Application.Books.Commands.AddBook;

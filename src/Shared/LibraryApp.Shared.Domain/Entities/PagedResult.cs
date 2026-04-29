@@ -1,5 +1,4 @@
-namespace LibraryApp.Catalog.Domain.Common;
-
+namespace LibraryApp.Shared.Domain.Entities;
 public class PagedResult<T>
 {
     public ICollection<T> Items { get; init; } = [];

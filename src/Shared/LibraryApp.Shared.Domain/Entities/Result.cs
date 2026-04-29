@@ -1,4 +1,4 @@
-namespace LibraryApp.Shared.Domain;
+namespace LibraryApp.Shared.Domain.Entities;
 
 public class Result<T>
 {

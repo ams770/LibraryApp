@@ -1,5 +1,7 @@
 using LibraryApp.Catalog.Domain.Common;
 using LibraryApp.Catalog.Domain.Entities;
+using LibraryApp.Shared.Domain.Entities;
+using LibraryApp.Shared.Domain.Interfaces;
 
 namespace LibraryApp.Catalog.Domain.interfaces;
 

@@ -1,4 +1,4 @@
-namespace LibraryApp.Catalog.Domain.Common;
+namespace LibraryApp.Shared.Domain.Entities;
 
 public class PagedRequest
 {

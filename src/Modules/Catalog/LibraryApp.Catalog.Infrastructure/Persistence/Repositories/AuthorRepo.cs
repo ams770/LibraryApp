@@ -7,35 +7,35 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LibraryApp.Catalog.Infrastructure.Persistence.Repositories;
 
-public class BookRepo(CatalogDbContext dbContext) : IBookRepo
+public class AuthorRepo(CatalogDbContext dbContext) : IAuthorRepo
 {
-    public async Task AddAsync(Book entity)
+    public async Task AddAsync(Author entity)
     {
         await dbContext.AddAsync(entity);
     }
 
-    public async Task<Book?> GetByIdAsync(Guid id)
+    public async Task<Author?> GetByIdAsync(Guid id)
     {
-        return await dbContext.Books
-            .Include(i => i.Author)
-            .FirstOrDefaultAsync(item => item.Id == id);
+        return await dbContext.Authors
+            .FindAsync(id);
     }
 
-    public async Task<PagedResult<Book>> GetAllAsync(BookPagedRequest query)
+    public async Task<PagedResult<Author>> GetAllAsync(PagedRequest query)
     {
-        var q = dbContext.Books
-            .Include(b => b.Author)
+        var q = dbContext.Authors
             .AsQueryable();
-        
-        if (query.AuthorId.HasValue) q = q.Where(b => b.AuthorId == query.AuthorId);
+        // Apply Needed Queries
+        if (query.SearchTerm is not null)
+            q = q.Where(b => b.FullName.ToLower().Contains(query.SearchTerm.ToLower()));
 
+        // Apply Pagination
         var totalCount = await q.CountAsync();
         var items = await q
             .Skip((query.Page - 1) * query.PageSize)
             .Take(query.PageSize)
             .ToListAsync();
 
-        return new PagedResult<Book>
+        return new PagedResult<Author>
         {
             Items = items,
             TotalCount = totalCount,

@@ -1,23 +1,48 @@
 using LibraryApp.Catalog.Domain.Common;
 using LibraryApp.Catalog.Domain.Entities;
 using LibraryApp.Catalog.Domain.interfaces;
+using LibraryApp.Shared.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
-namespace LibraryApp.Catalog.Infrastructure.Repositories;
 
-public class BookRepo() : IBookRepo
+namespace LibraryApp.Catalog.Infrastructure.Persistence.Repositories;
+
+public class BookRepo(CatalogDbContext dbContext) : IBookRepo
 {
-    public Task AddAsync(Book entity)
+    public async Task AddAsync(Book entity)
     {
-        throw new NotImplementedException();
+        await dbContext.AddAsync(entity);
     }
 
-    public Task<Book?> GetByIdAsync(Guid id)
+    public async Task<Book?> GetByIdAsync(Guid id)
     {
-        throw new NotImplementedException();
+        return await dbContext.Books
+            .Include(i => i.Author)
+            .FirstOrDefaultAsync(item => item.Id == id);
     }
 
-    public Task<PagedResult<Book>> GetAllAsync(BookPagedRequest query)
+    public async Task<PagedResult<Book>> GetAllAsync(BookPagedRequest query)
     {
-        throw new NotImplementedException();
+        var q = dbContext.Books
+            .Include(b => b.Author)
+            .AsQueryable();
+        // Apply Needed Queries
+        if (query.AuthorId.HasValue) q = q.Where(b => b.AuthorId == query.AuthorId);
+        if (query.SearchTerm is not null)
+            q = q.Where(b => b.Title.ToLower().Contains(query.SearchTerm.ToLower()));
+        // Apply Pagination
+        var totalCount = await q.CountAsync();
+        var items = await q
+            .Skip((query.Page - 1) * query.PageSize)
+            .Take(query.PageSize)
+            .ToListAsync();
+
+        return new PagedResult<Book>
+        {
+            Items = items,
+            TotalCount = totalCount,
+            Page = query.Page,
+            PageSize = query.PageSize
+        };
     }
 }

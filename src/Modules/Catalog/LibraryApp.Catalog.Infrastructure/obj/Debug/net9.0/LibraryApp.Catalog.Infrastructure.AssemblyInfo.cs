@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LibraryApp.Catalog.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+56c8315486c7a4d977e5d36ceac082204d7c9b05")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f2b322d5561e3a74f400e5c4d3f1f18e11da8bf9")]
 [assembly: System.Reflection.AssemblyProductAttribute("LibraryApp.Catalog.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LibraryApp.Catalog.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
