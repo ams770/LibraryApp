@@ -6,7 +6,7 @@ namespace LibraryApp.Catalog.Domain.Entities;
 public class Author : Entity<Guid>
 {
     public string FullName { get; private set; } = string.Empty;
-    private List<Book> _books = new();
+    private readonly List<Book> _books = [];
     public IReadOnlyCollection<Book> Books => _books.AsReadOnly();
 
     private Author()

@@ -1,7 +1,6 @@
-using LibraryApp.Catalog.Domain.Common;
 using LibraryApp.Catalog.Domain.interfaces;
 using LibraryApp.Shared.Contracts.Dtos;
-using LibraryApp.Shared.Domain.Entities;
+using LibraryApp.Shared.Contracts.Primitives;
 using MediatR;
 
 namespace LibraryApp.Catalog.Application.Authors.Queries.GetAll;
@@ -20,8 +19,8 @@ public class GetAllAuthorsService(IAuthorRepo authorRepo)
         var mappedPagedResult = new PagedResult<AuthorDto>
         {
             Items = pagedItemsMapped,
-            Page = request.Page,
-            PageSize = request.PageSize,
+            Page = authorsPaged.Page,
+            PageSize = authorsPaged.PageSize,
             TotalCount = authorsPaged.TotalCount,
         };
         

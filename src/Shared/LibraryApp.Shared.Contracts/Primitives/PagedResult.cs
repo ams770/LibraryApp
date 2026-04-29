@@ -1,4 +1,4 @@
-namespace LibraryApp.Shared.Domain.Entities;
+namespace LibraryApp.Shared.Contracts.Primitives;
 public class PagedResult<T>
 {
     public ICollection<T> Items { get; init; } = [];

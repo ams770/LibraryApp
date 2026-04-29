@@ -1,11 +1,11 @@
 using LibraryApp.Catalog.Application.Interfaces;
 
-namespace LibraryApp.Catalog.Infrastructure.Persistence.Repositories;
+namespace LibraryApp.Catalog.Infrastructure.Persistence;
 
-public class UnitOfWork(CatalogDbContext dbContext): IUnitOfWork 
+public class UnitOfWork(CatalogDbContext dbContext) : IUnitOfWork
 {
-    public async Task SaveChangesAsync()
+    public async Task SaveChangesAsync(CancellationToken ct = default)
     {
-        await dbContext.SaveChangesAsync();
+        await dbContext.SaveChangesAsync(ct);
     }
 }

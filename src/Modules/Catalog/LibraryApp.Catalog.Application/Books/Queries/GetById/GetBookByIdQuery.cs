@@ -4,4 +4,4 @@ using MediatR;
 
 namespace LibraryApp.Catalog.Application.Books.Queries.GetById;
 
-public record GetBookByIdCommand(Guid BookId) : IRequest<Result<BookDto>>;
+public record GetBookByIdQuery(Guid BookId) : IRequest<Result<BookDto>>;

@@ -148,6 +148,16 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
+      "LibraryApp.Shared.Contracts/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/LibraryApp.Shared.Contracts.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LibraryApp.Shared.Contracts.dll": {}
+        }
+      },
       "LibraryApp.Shared.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
@@ -429,6 +439,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "LibraryApp.Shared.Contracts/1.0.0": {
+      "type": "project",
+      "path": "../../../Shared/LibraryApp.Shared.Contracts/LibraryApp.Shared.Contracts.csproj",
+      "msbuildProject": "../../../Shared/LibraryApp.Shared.Contracts/LibraryApp.Shared.Contracts.csproj"
+    },
     "LibraryApp.Shared.Domain/1.0.0": {
       "type": "project",
       "path": "../../../Shared/LibraryApp.Shared.Domain/LibraryApp.Shared.Domain.csproj",
@@ -437,6 +452,7 @@
   },
   "projectFileDependencyGroups": {
     "net9.0": [
+      "LibraryApp.Shared.Contracts >= 1.0.0",
       "LibraryApp.Shared.Domain >= 1.0.0"
     ]
   },
@@ -465,6 +481,9 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
+            "/Users/salem/Web/LibraryApp/src/Shared/LibraryApp.Shared.Contracts/LibraryApp.Shared.Contracts.csproj": {
+              "projectPath": "/Users/salem/Web/LibraryApp/src/Shared/LibraryApp.Shared.Contracts/LibraryApp.Shared.Contracts.csproj"
+            },
             "/Users/salem/Web/LibraryApp/src/Shared/LibraryApp.Shared.Domain/LibraryApp.Shared.Domain.csproj": {
               "projectPath": "/Users/salem/Web/LibraryApp/src/Shared/LibraryApp.Shared.Domain/LibraryApp.Shared.Domain.csproj"
             }

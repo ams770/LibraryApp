@@ -98,6 +98,9 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
+              "/Users/salem/Web/LibraryApp/src/Shared/LibraryApp.Shared.Contracts/LibraryApp.Shared.Contracts.csproj": {
+                "projectPath": "/Users/salem/Web/LibraryApp/src/Shared/LibraryApp.Shared.Contracts/LibraryApp.Shared.Contracts.csproj"
+              },
               "/Users/salem/Web/LibraryApp/src/Shared/LibraryApp.Shared.Domain/LibraryApp.Shared.Domain.csproj": {
                 "projectPath": "/Users/salem/Web/LibraryApp/src/Shared/LibraryApp.Shared.Domain/LibraryApp.Shared.Domain.csproj"
               }

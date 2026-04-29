@@ -1,21 +1,19 @@
-using LibraryApp.Catalog.Application.Common.Exceptions;
 using LibraryApp.Catalog.Application.Interfaces;
-using LibraryApp.Catalog.Domain.Entities;
+using LibraryApp.Shared.Contracts.Primitives;
 using LibraryApp.Catalog.Domain.interfaces;
-using LibraryApp.Shared.Domain.Entities;
 using MediatR;
 
 namespace LibraryApp.Catalog.Application.Books.Commands.MarkBookAsAvailable;
 
-public class MarkBookAsAvailableService(IUnitOfWork unitOfWork, IBookRepo bookRepo) : IRequestHandler<MarkBookAsAvailableCommand, Result<Guid>>
+public class MarkBookAsAvailableHandler(IUnitOfWork unitOfWork, IBookRepo bookRepo) : IRequestHandler<MarkBookAsAvailableCommand, Result>
 {
-    public async Task<Result<Guid>> Handle(MarkBookAsAvailableCommand request, CancellationToken cancellationToken)
+    public async Task<Result> Handle(MarkBookAsAvailableCommand request, CancellationToken cancellationToken)
     {
 
         var book = await bookRepo.GetByIdAsync(request.BookId);
-        if(book is null) return Result<Guid>.Failure("Book not found");
+        if(book is null) return Result.Failure("Book not found");
         book.MarkAsAvailable();
-        await unitOfWork.SaveChangesAsync();
-        return Result<Guid>.Success(book.Id);
+        await unitOfWork.SaveChangesAsync(cancellationToken);
+        return Result.Success();
     }
 }

@@ -1488,10 +1488,24 @@
           "bin/placeholder/LibraryApp.Catalog.Application.dll": {}
         }
       },
+      "LibraryApp.Catalog.Contracts/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "LibraryApp.Shared.Contracts": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/LibraryApp.Catalog.Contracts.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LibraryApp.Catalog.Contracts.dll": {}
+        }
+      },
       "LibraryApp.Catalog.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
+          "LibraryApp.Shared.Contracts": "1.0.0",
           "LibraryApp.Shared.Domain": "1.0.0"
         },
         "compile": {
@@ -3856,6 +3870,11 @@
       "path": "../LibraryApp.Catalog.Application/LibraryApp.Catalog.Application.csproj",
       "msbuildProject": "../LibraryApp.Catalog.Application/LibraryApp.Catalog.Application.csproj"
     },
+    "LibraryApp.Catalog.Contracts/1.0.0": {
+      "type": "project",
+      "path": "../LibraryApp.Catalog.Contracts/LibraryApp.Catalog.Contracts.csproj",
+      "msbuildProject": "../LibraryApp.Catalog.Contracts/LibraryApp.Catalog.Contracts.csproj"
+    },
     "LibraryApp.Catalog.Domain/1.0.0": {
       "type": "project",
       "path": "../LibraryApp.Catalog.Domain/LibraryApp.Catalog.Domain.csproj",
@@ -3875,6 +3894,7 @@
   "projectFileDependencyGroups": {
     "net9.0": [
       "LibraryApp.Catalog.Application >= 1.0.0",
+      "LibraryApp.Catalog.Contracts >= 1.0.0",
       "MediatR >= 14.1.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.4",
       "Microsoft.EntityFrameworkCore.Tools >= 10.0.7"
@@ -3907,6 +3927,9 @@
           "projectReferences": {
             "/Users/salem/Web/LibraryApp/src/Modules/Catalog/LibraryApp.Catalog.Application/LibraryApp.Catalog.Application.csproj": {
               "projectPath": "/Users/salem/Web/LibraryApp/src/Modules/Catalog/LibraryApp.Catalog.Application/LibraryApp.Catalog.Application.csproj"
+            },
+            "/Users/salem/Web/LibraryApp/src/Modules/Catalog/LibraryApp.Catalog.Contracts/LibraryApp.Catalog.Contracts.csproj": {
+              "projectPath": "/Users/salem/Web/LibraryApp/src/Modules/Catalog/LibraryApp.Catalog.Contracts/LibraryApp.Catalog.Contracts.csproj"
             }
           }
         }

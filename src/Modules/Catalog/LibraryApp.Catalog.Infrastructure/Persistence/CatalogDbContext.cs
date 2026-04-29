@@ -12,6 +12,8 @@ public class CatalogDbContext(DbContextOptions<CatalogDbContext> options, IPubli
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        // isolate schemas -> avoid mising tables with other modules
+        modelBuilder.HasDefaultSchema("catalog");
         //------ Auto-discovers all IEntityTypeConfiguration<T> ------//
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(CatalogDbContext).Assembly);
     }

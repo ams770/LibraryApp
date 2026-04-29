@@ -1,5 +1,5 @@
 using LibraryApp.Shared.Contracts.Dtos;
-using LibraryApp.Shared.Domain.Entities;
+using LibraryApp.Shared.Contracts.Primitives;
 using MediatR;
 
 namespace LibraryApp.Catalog.Application.Authors.Queries.GetAll;

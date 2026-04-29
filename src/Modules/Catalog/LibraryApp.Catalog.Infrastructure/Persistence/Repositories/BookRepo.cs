@@ -1,9 +1,8 @@
 using LibraryApp.Catalog.Domain.Common;
 using LibraryApp.Catalog.Domain.Entities;
 using LibraryApp.Catalog.Domain.interfaces;
-using LibraryApp.Shared.Domain.Entities;
+using LibraryApp.Shared.Contracts.Primitives;
 using Microsoft.EntityFrameworkCore;
-
 
 namespace LibraryApp.Catalog.Infrastructure.Persistence.Repositories;
 

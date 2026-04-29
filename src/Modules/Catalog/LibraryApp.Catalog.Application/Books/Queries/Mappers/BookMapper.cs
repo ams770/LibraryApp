@@ -1,7 +1,7 @@
 using LibraryApp.Catalog.Domain.Entities;
 using LibraryApp.Shared.Contracts.Dtos;
 
-namespace LibraryApp.Catalog.Application.Books.Queries.GetAll;
+namespace LibraryApp.Catalog.Application.Books.Queries.Mappers;
 
 public static class BookMapper
 {

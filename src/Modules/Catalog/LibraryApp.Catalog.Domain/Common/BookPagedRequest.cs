@@ -1,5 +1,4 @@
-using LibraryApp.Shared.Domain.Entities;
-
+using LibraryApp.Shared.Contracts.Primitives;
 namespace LibraryApp.Catalog.Domain.Common;
 
 public class BookPagedRequest : PagedRequest

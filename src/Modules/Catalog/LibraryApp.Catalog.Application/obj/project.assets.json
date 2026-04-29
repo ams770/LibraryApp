@@ -152,6 +152,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
+          "LibraryApp.Shared.Contracts": "1.0.0",
           "LibraryApp.Shared.Domain": "1.0.0"
         },
         "compile": {
