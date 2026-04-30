@@ -11,7 +11,7 @@ public class MarkBookAsUnAvailableHandler(IUnitOfWork unitOfWork, IBookRepo book
     {
         var book = await bookRepo.GetByIdAsync(request.BookId);
         if(book is null) return Result.Failure("Book not found");
-        book.MarkAsAvailable();
+        book.MarkAsUnavailable();
         await unitOfWork.SaveChangesAsync(cancellationToken);
         return Result.Success();
     }
