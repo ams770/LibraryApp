@@ -1,3 +1,3 @@
 namespace LibraryApp.Catalog.Contracts.Requests;
 
-public record EditAuthorRequestContract();
+public record EditAuthorRequestContract(string Name);

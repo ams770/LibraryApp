@@ -1,6 +1,3 @@
 namespace LibraryApp.Catalog.Contracts.Requests;
 
-public class AddAuthorRequestContract
-{
-    
-}
+public record AddAuthorRequestContract(string Name);

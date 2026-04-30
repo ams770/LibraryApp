@@ -11,8 +11,10 @@ public class EditAuthorHandler(IUnitOfWork unitOfWork, IAuthorRepo authorRepo)
 {
     public async Task<Result> Handle(EditAuthorCommand request, CancellationToken cancellationToken)
     {
-        var author = Author.Create(request.FullName);
-        await authorRepo.AddAsync(author);
+        
+        var author = await authorRepo.GetByIdAsync(request.Id);
+        if (author is null) return Result.Failure("Author not found");
+        author.SetName(request.FullName);
         await unitOfWork.SaveChangesAsync(cancellationToken);
         return Result.Success();
     }

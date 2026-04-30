@@ -5,4 +5,8 @@ using MediatR;
 
 namespace LibraryApp.Catalog.Application.Books.Queries.GetAll;
 
-public class GetAllBooksQuery: BookPagedRequest, IRequest<Result<PagedResult<BookDto>>>;
+public record GetAllBooksQuery(
+    int Page,
+    int PageSize,
+    string? SearchTerm,
+    Guid? AuthorId) : IRequest<Result<PagedResult<BookDto>>>;

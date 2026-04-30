@@ -10,7 +10,7 @@ namespace LibraryApp.Catalog.Infrastructure.Services;
 
 public class CatalogService(ISender sender) : ICatalogService
 {
-    public Task<Result<BookDto>> GetBookAsync(Guid bookId, CancellationToken ct) =>
+    public Task<Result<BookDto>> GetBookByIdAsync(Guid bookId, CancellationToken ct) =>
         sender.Send(new GetBookByIdQuery(bookId), ct);
 
     public Task<Result> MarkBookUnavailableAsync(Guid bookId, CancellationToken ct) =>

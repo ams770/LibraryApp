@@ -1,6 +1,3 @@
 namespace LibraryApp.Catalog.Contracts.Requests;
 
-public class AddBookRequestContract
-{
-    
-}
+public record AddBookRequestContract(Guid AuthorId, string Title, bool IsAvailable);

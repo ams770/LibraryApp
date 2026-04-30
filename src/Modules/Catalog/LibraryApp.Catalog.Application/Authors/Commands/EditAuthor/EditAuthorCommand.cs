@@ -3,4 +3,4 @@ using MediatR;
 
 namespace LibraryApp.Catalog.Application.Authors.Commands.EditAuthor;
 
-public record EditAuthorCommand(string FullName) : IRequest<Result>;
+public record EditAuthorCommand(Guid Id, string FullName) : IRequest<Result>;
