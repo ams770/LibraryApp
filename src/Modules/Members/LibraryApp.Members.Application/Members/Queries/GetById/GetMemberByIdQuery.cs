@@ -4,4 +4,4 @@ using MediatR;
 
 namespace LibraryApp.Members.Application.Members.Queries.GetById;
 
-public record GetMemberById(Guid Id) : IRequest<Result<MemberDto>>;
+public record GetMemberByIdQuery(Guid Id) : IRequest<Result<MemberDto>>;

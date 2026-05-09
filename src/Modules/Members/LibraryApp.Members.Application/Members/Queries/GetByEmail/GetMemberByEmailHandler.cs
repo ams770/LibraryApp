@@ -4,13 +4,13 @@ using LibraryApp.Shared.Contracts.Dtos;
 using LibraryApp.Shared.Contracts.Primitives;
 using MediatR;
 
-namespace LibraryApp.Members.Application.Members.Queries.Email;
+namespace LibraryApp.Members.Application.Members.Queries.GetByEmail;
 
-public class GetMemberByIdHandler(IMemberRepo memberRepo) : IRequestHandler<GetMemberByIdQuery, Result<MemberDto>>
+public class GetMemberByEmailHandler(IMemberRepo memberRepo) : IRequestHandler<GetMemberByEmailQuery, Result<MemberDto>>
 {
-    public async Task<Result<MemberDto>> Handle(GetMemberByIdQuery request, CancellationToken cancellationToken)
+    public async Task<Result<MemberDto>> Handle(GetMemberByEmailQuery request, CancellationToken cancellationToken)
     {
-        var member = await memberRepo.GetByIdAsync(request.Id);
+        var member = await memberRepo.GetByEmailAsync(request.Email);
         return member is null
             ? Result<MemberDto>.Failure("Member is not found!")
             : Result<MemberDto>.Success(member.ToDto());
