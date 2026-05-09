@@ -1,4 +1,4 @@
-namespace LibraryApp.Catalog.Application.Interfaces;
+namespace LibraryApp.Members.Application.Interfaces;
 
 public interface IUnitOfWork
 {

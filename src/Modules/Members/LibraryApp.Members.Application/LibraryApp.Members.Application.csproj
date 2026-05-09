@@ -7,8 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Members\Queries\GetAll\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="14.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\..\Shared\LibraryApp.Shared.Contracts\LibraryApp.Shared.Contracts.csproj" />
-    <ProjectReference Include="..\..\..\Shared\LibraryApp.Shared.Domain\LibraryApp.Shared.Domain.csproj" />
+    <ProjectReference Include="..\LibraryApp.Members.Domain\LibraryApp.Members.Domain.csproj" />
   </ItemGroup>
 
 </Project>

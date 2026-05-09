@@ -1,3 +1,3 @@
 namespace LibraryApp.Shared.Domain.Exceptions;
 
-public record DomainException();
+public class DomainException(string message) : Exception;

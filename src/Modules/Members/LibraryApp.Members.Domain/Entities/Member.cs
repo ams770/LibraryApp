@@ -3,7 +3,7 @@ using LibraryApp.Shared.Domain.Entities;
 using LibraryApp.Shared.Domain.Exceptions;
 using LibraryApp.Shared.Domain.Validation;
 
-namespace LibraryApp.Members.Domain;
+namespace LibraryApp.Members.Domain.Entities;
 
 
 public class Member : Entity<Guid>

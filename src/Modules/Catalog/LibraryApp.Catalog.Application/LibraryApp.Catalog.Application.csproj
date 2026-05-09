@@ -2,7 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Shared\LibraryApp.Shared.Contracts\LibraryApp.Shared.Contracts.csproj" />
-    <ProjectReference Include="..\Catalog.Domain\Catalog.Domain.csproj" />
+    <ProjectReference Include="..\LibraryApp.Catalog.Domain\LibraryApp.Catalog.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
