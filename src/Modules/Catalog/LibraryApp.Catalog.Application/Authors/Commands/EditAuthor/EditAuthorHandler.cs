@@ -1,6 +1,5 @@
 using LibraryApp.Catalog.Application.Interfaces;
-using LibraryApp.Catalog.Domain.Entities;
-using LibraryApp.Catalog.Domain.interfaces;
+using LibraryApp.Catalog.Domain.Interfaces;
 using LibraryApp.Shared.Contracts.Primitives;
 using MediatR;
 
@@ -11,7 +10,7 @@ public class EditAuthorHandler(IUnitOfWork unitOfWork, IAuthorRepo authorRepo)
 {
     public async Task<Result> Handle(EditAuthorCommand request, CancellationToken cancellationToken)
     {
-        
+
         var author = await authorRepo.GetByIdAsync(request.Id);
         if (author is null) return Result.Failure("Author not found");
         author.SetName(request.FullName);

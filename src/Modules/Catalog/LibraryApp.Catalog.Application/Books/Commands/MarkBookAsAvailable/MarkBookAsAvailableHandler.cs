@@ -1,6 +1,6 @@
 using LibraryApp.Catalog.Application.Interfaces;
 using LibraryApp.Shared.Contracts.Primitives;
-using LibraryApp.Catalog.Domain.interfaces;
+using LibraryApp.Catalog.Domain.Interfaces;
 using MediatR;
 
 namespace LibraryApp.Catalog.Application.Books.Commands.MarkBookAsAvailable;
@@ -11,7 +11,7 @@ public class MarkBookAsAvailableHandler(IUnitOfWork unitOfWork, IBookRepo bookRe
     {
 
         var book = await bookRepo.GetByIdAsync(request.BookId);
-        if(book is null) return Result.Failure("Book not found");
+        if (book is null) return Result.Failure("Book not found");
         book.MarkAsAvailable();
         await unitOfWork.SaveChangesAsync(cancellationToken);
         return Result.Success();

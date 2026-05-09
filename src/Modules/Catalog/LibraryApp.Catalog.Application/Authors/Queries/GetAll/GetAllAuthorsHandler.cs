@@ -1,4 +1,4 @@
-using LibraryApp.Catalog.Domain.interfaces;
+using LibraryApp.Catalog.Domain.Interfaces;
 using LibraryApp.Shared.Contracts.Dtos;
 using LibraryApp.Shared.Contracts.Primitives;
 using MediatR;
@@ -23,7 +23,7 @@ public class GetAllAuthorsHandler(IAuthorRepo authorRepo)
             PageSize = authorsPaged.PageSize,
             TotalCount = authorsPaged.TotalCount,
         };
-        
+
         return Result<PagedResult<AuthorDto>>.Success(mappedPagedResult);
     }
 }

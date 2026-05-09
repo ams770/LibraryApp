@@ -3,7 +3,7 @@ using LibraryApp.Shared.Contracts.Primitives;
 using LibraryApp.Shared.Domain.Interfaces;
 
 
-namespace LibraryApp.Catalog.Domain.interfaces;
+namespace LibraryApp.Catalog.Domain.Interfaces;
 
 public interface IAuthorRepo : IDomainRepo<Author>
 {

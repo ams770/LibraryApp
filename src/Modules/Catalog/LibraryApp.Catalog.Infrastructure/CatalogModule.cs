@@ -4,7 +4,7 @@ using LibraryApp.Catalog.Contracts.Services;
 using LibraryApp.Catalog.Infrastructure.Persistence;
 using LibraryApp.Catalog.Infrastructure.Persistence.Repositories;
 using LibraryApp.Catalog.Infrastructure.Services;
-using LibraryApp.Catalog.Domain.interfaces;
+using LibraryApp.Catalog.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

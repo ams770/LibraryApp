@@ -1,12 +1,12 @@
 using LibraryApp.Catalog.Application.Interfaces;
 using LibraryApp.Catalog.Domain.Entities;
-using LibraryApp.Catalog.Domain.interfaces;
+using LibraryApp.Catalog.Domain.Interfaces;
 using LibraryApp.Shared.Contracts.Primitives;
 using MediatR;
 
 namespace LibraryApp.Catalog.Application.Books.Commands.AddBook;
 
-public class AddBookHandler(IUnitOfWork unitOfWork,IAuthorRepo authorRepo, IBookRepo bookRepo) : IRequestHandler<AddBookCommand, Result<Guid>>
+public class AddBookHandler(IUnitOfWork unitOfWork, IAuthorRepo authorRepo, IBookRepo bookRepo) : IRequestHandler<AddBookCommand, Result<Guid>>
 {
     public async Task<Result<Guid>> Handle(AddBookCommand request, CancellationToken cancellationToken)
     {
@@ -17,7 +17,7 @@ public class AddBookHandler(IUnitOfWork unitOfWork,IAuthorRepo authorRepo, IBook
         var book = Book.Create(author.Id, request.Title, request.IsAvailable);
         await bookRepo.AddAsync(book);
         await unitOfWork.SaveChangesAsync(cancellationToken);
-        
+
         return Result<Guid>.Success(book.Id);
     }
 }

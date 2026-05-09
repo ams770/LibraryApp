@@ -1,6 +1,6 @@
 using LibraryApp.Catalog.Application.Interfaces;
 using LibraryApp.Catalog.Domain.Entities;
-using LibraryApp.Catalog.Domain.interfaces;
+using LibraryApp.Catalog.Domain.Interfaces;
 using LibraryApp.Shared.Contracts.Primitives;
 using MediatR;
 

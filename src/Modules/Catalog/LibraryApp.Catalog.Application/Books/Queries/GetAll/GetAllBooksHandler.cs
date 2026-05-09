@@ -1,6 +1,6 @@
 using LibraryApp.Catalog.Application.Books.Queries.Mappers;
 using LibraryApp.Catalog.Domain.Common;
-using LibraryApp.Catalog.Domain.interfaces;
+using LibraryApp.Catalog.Domain.Interfaces;
 using LibraryApp.Shared.Contracts.Dtos;
 using LibraryApp.Shared.Contracts.Primitives;
 using MediatR;
@@ -11,14 +11,14 @@ public class GetAllBooksHandler(IBookRepo bookRepo) : IRequestHandler<GetAllBook
 {
     public async Task<Result<PagedResult<BookDto>>> Handle(GetAllBooksQuery request, CancellationToken cancellationToken)
     {
-        
+
         // Map
         var domainQuery = new BookPagedRequest
         {
             Page = request.Page,
             PageSize = request.PageSize,
-            SearchTerm =  request.SearchTerm,
-            AuthorId =  request.AuthorId
+            SearchTerm = request.SearchTerm,
+            AuthorId = request.AuthorId
         };
         // Call Domain
         var pagedBooks = await bookRepo.GetAllAsync(domainQuery);
