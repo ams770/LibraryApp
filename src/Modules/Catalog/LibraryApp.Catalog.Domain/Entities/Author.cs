@@ -1,5 +1,5 @@
-using LibraryApp.Catalog.Domain.Exceptions;
 using LibraryApp.Shared.Domain.Entities;
+using LibraryApp.Shared.Domain.Exceptions;
 
 namespace LibraryApp.Catalog.Domain.Entities;
 

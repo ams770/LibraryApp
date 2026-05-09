@@ -23,7 +23,7 @@ namespace LibraryApp.Catalog.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Catalog.Domain.Entities.Author", b =>
+            modelBuilder.Entity("LibraryApp.Catalog.Domain.Entities.Author", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -42,7 +42,7 @@ namespace LibraryApp.Catalog.Infrastructure.Migrations
                     b.ToTable("Authors", "catalog");
                 });
 
-            modelBuilder.Entity("Catalog.Domain.Entities.Book", b =>
+            modelBuilder.Entity("LibraryApp.Catalog.Domain.Entities.Book", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -71,9 +71,9 @@ namespace LibraryApp.Catalog.Infrastructure.Migrations
                     b.ToTable("Books", "catalog");
                 });
 
-            modelBuilder.Entity("Catalog.Domain.Entities.Book", b =>
+            modelBuilder.Entity("LibraryApp.Catalog.Domain.Entities.Book", b =>
                 {
-                    b.HasOne("Catalog.Domain.Entities.Author", "Author")
+                    b.HasOne("LibraryApp.Catalog.Domain.Entities.Author", "Author")
                         .WithMany("Books")
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -82,7 +82,7 @@ namespace LibraryApp.Catalog.Infrastructure.Migrations
                     b.Navigation("Author");
                 });
 
-            modelBuilder.Entity("Catalog.Domain.Entities.Author", b =>
+            modelBuilder.Entity("LibraryApp.Catalog.Domain.Entities.Author", b =>
                 {
                     b.Navigation("Books");
                 });

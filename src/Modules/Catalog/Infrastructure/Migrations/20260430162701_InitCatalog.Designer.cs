@@ -4,6 +4,7 @@ using LibraryApp.Catalog.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryApp.Catalog.Infrastructure.Migrations
 {
     [DbContext(typeof(CatalogDbContext))]
-    partial class CatalogDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260430162701_InitCatalog")]
+    partial class InitCatalog
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -23,7 +26,7 @@ namespace LibraryApp.Catalog.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Catalog.Domain.Entities.Author", b =>
+            modelBuilder.Entity("LibraryApp.Catalog.Domain.Entities.Author", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -42,7 +45,7 @@ namespace LibraryApp.Catalog.Infrastructure.Migrations
                     b.ToTable("Authors", "catalog");
                 });
 
-            modelBuilder.Entity("Catalog.Domain.Entities.Book", b =>
+            modelBuilder.Entity("LibraryApp.Catalog.Domain.Entities.Book", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -71,9 +74,9 @@ namespace LibraryApp.Catalog.Infrastructure.Migrations
                     b.ToTable("Books", "catalog");
                 });
 
-            modelBuilder.Entity("Catalog.Domain.Entities.Book", b =>
+            modelBuilder.Entity("LibraryApp.Catalog.Domain.Entities.Book", b =>
                 {
-                    b.HasOne("Catalog.Domain.Entities.Author", "Author")
+                    b.HasOne("LibraryApp.Catalog.Domain.Entities.Author", "Author")
                         .WithMany("Books")
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -82,7 +85,7 @@ namespace LibraryApp.Catalog.Infrastructure.Migrations
                     b.Navigation("Author");
                 });
 
-            modelBuilder.Entity("Catalog.Domain.Entities.Author", b =>
+            modelBuilder.Entity("LibraryApp.Catalog.Domain.Entities.Author", b =>
                 {
                     b.Navigation("Books");
                 });

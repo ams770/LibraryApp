@@ -5,7 +5,7 @@ using MediatR;
 
 namespace LibraryApp.Catalog.Application.Authors.Queries.GetAll;
 
-public class GetAllAuthorsService(IAuthorRepo authorRepo)
+public class GetAllAuthorsHandler(IAuthorRepo authorRepo)
     : IRequestHandler<GetAllAuthorsQuery, Result<PagedResult<AuthorDto>>>
 {
     public async Task<Result<PagedResult<AuthorDto>>> Handle(GetAllAuthorsQuery request,
