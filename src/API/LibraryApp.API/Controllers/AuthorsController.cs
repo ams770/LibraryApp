@@ -14,7 +14,7 @@ public class AuthorsController(ICatalogApi catalog) : ControllerBase
         AddAuthorRequestContract request, CancellationToken ct)
     {
         var result = await catalog.AddAuthorAsync(request.Name, ct);
-        return result.IsSuccess ? Ok(result.Value) : BadRequest(result.Error);
+        return result.IsSuccess ? Ok(result) : BadRequest(result);
     }
 
     [HttpPut("{id:guid}")]
@@ -22,7 +22,7 @@ public class AuthorsController(ICatalogApi catalog) : ControllerBase
         Guid id, EditAuthorRequestContract request, CancellationToken ct)
     {
         var result = await catalog.EditAuthorAsync(id, request.Name, ct);
-        return result.IsSuccess ? Ok() : BadRequest(result.Error);
+        return result.IsSuccess ? Ok() : BadRequest(result);
     }
 
     [HttpGet]
@@ -30,6 +30,6 @@ public class AuthorsController(ICatalogApi catalog) : ControllerBase
         [FromQuery] PagedRequest query, CancellationToken ct)
     {
         var result = await catalog.GetAllAuthorsAsync(query, ct);
-        return result.IsSuccess ? Ok(result.Value) : BadRequest(result.Error);
+        return result.IsSuccess ? Ok(result) : BadRequest(result);
     }
 }

@@ -1,14 +1,16 @@
 using LibraryApp.Catalog.Infrastructure;
+using LibraryApp.Members.Infrastructure;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // ── Services ────────────────────────────────────────────────
 builder.Services.AddControllers();
-builder.Services.AddOpenApi(); // ← this was missing
+builder.Services.AddOpenApi();
 
 // ── Modules ─────────────────────────────────────────────────
 builder.Services.AddCatalogModule(builder.Configuration);
+builder.Services.AddMemberModule(builder.Configuration);
 
 // ── Pipeline ─────────────────────────────────────────────────
 var app = builder.Build();

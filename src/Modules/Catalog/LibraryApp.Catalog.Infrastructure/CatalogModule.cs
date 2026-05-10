@@ -13,8 +13,7 @@ namespace LibraryApp.Catalog.Infrastructure;
 
 public static class CatalogModule
 {
-    public static IServiceCollection AddCatalogModule(
-        this IServiceCollection services,
+    public static void AddCatalogModule(this IServiceCollection services,
         IConfiguration configuration)
     {
         // Database
@@ -30,13 +29,12 @@ public static class CatalogModule
 
         // internal module services
         services.AddScoped<ICatalogService, CatalogService>();
+        // public api
         services.AddScoped<ICatalogApi, CatalogApi>();
 
         // scans Application layer for all MediatR handlers
         services.AddMediatR(cfg =>
             cfg.RegisterServicesFromAssembly(
                 typeof(AddBookCommand).Assembly));
-
-        return services;
     }
 }

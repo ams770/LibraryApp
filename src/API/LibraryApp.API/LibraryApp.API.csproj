@@ -16,7 +16,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Modules\Catalog\LibraryApp.Catalog.Contracts\LibraryApp.Catalog.Contracts.csproj" />
     <ProjectReference Include="..\..\Modules\Catalog\LibraryApp.Catalog.Infrastructure\LibraryApp.Catalog.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Modules\Members\LibraryApp.Members.Contracts\LibraryApp.Members.Contracts.csproj" />
+    <ProjectReference Include="..\..\Modules\Members\LibraryApp.Members.Infrastructure\LibraryApp.Members.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

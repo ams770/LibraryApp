@@ -1,3 +1,3 @@
 namespace LibraryApp.Members.Contracts.Requests;
 
-public record AddRequestMemberContract(string FullName, string Email);
+public record AddMemberRequestContract(string FullName, string Email);

@@ -1,6 +1,6 @@
 namespace LibraryApp.Members.Contracts.Services;
 
-public class IMemberInstaller
+public interface IMemberInstaller
 {
     
 }
