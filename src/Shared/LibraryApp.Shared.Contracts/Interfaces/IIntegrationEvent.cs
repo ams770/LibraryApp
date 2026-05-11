@@ -1,6 +1,5 @@
+using MediatR;
+
 namespace LibraryApp.Shared.Contracts.Interfaces;
 
-public class IIntegrationEvent
-{
-    
-}
+public interface IIntegrationEvent : INotification;

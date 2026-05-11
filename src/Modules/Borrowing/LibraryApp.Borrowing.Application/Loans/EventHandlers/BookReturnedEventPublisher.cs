@@ -4,11 +4,11 @@ using MediatR;
 
 namespace LibraryApp.Borrowing.Application.Loans.EventHandlers;
 
-public class AddLoanEventPublisher(IPublisher publisher) : INotificationHandler<LoanCreatedDomainEvent>
+public class BookReturnedEventPublisher(IPublisher publisher) : INotificationHandler<BookReturnedDomainEvent>
 {
-    public async Task Handle(LoanCreatedDomainEvent notification, CancellationToken ct)
+    public async Task Handle(BookReturnedDomainEvent notification, CancellationToken ct)
     {
         await publisher.Publish(
-            new LoanCreatedIntegrationEvent(notification.LoanId, notification.BookId, notification.MemberId), ct);
+            new BookReturnedIntegrationEvent(notification.LoanId, notification.BookId), ct);
     }
 }
