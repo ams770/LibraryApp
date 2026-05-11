@@ -7,9 +7,10 @@ using MediatR;
 
 namespace LibraryApp.Catalog.Application.Books.EventHandlers;
 
-public class MarkBookUnavailableOnLoanCreatedHandler(IBookRepo bookRepo, IUnitOfWork unitOfWork) : INotificationHandler<LoanCreatedDomainEvent>
+public class MarkBookAvailableOnLoanReturnedHandler(IBookRepo bookRepo, IUnitOfWork unitOfWork) : INotificationHandler<BookReturnedDomainEvent>
 {
-    public async Task Handle(LoanCreatedDomainEvent notification, CancellationToken ct)
+ 
+    public async Task Handle(BookReturnedDomainEvent notification, CancellationToken ct)
     {
         var book = await bookRepo.GetByIdAsync(notification.BookId);
         if(book is null) return;

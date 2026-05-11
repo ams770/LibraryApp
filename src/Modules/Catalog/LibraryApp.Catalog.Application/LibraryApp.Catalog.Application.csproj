@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Shared\LibraryApp.Shared.Contracts\LibraryApp.Shared.Contracts.csproj" />
+    <ProjectReference Include="..\..\Borrowing\LibraryApp.Borrowing.Domain\LibraryApp.Borrowing.Domain.csproj" />
     <ProjectReference Include="..\LibraryApp.Catalog.Domain\LibraryApp.Catalog.Domain.csproj" />
   </ItemGroup>
 

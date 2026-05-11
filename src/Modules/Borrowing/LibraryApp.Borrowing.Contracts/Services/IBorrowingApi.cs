@@ -6,6 +6,7 @@ namespace LibraryApp.Borrowing.Contracts.Services;
 
 public interface IBorrowingApi
 {
-    Task<Result<Guid>> AddAsync(AddLoanRequestContract request, CancellationToken ct);
-    Task<Result<PagedResult<LoanDto>>> GetAllAsync(LoanPagedRequestContract request, CancellationToken ct);
+    Task<Result> ReturnLoanAsync(Guid id, CancellationToken ct);
+    Task<Result<Guid>> AddLoanAsync(AddLoanRequestContract request, CancellationToken ct);
+    Task<Result<PagedResult<LoanDto>>> GetAllLoansAsync(LoanPagedRequestContract request, CancellationToken ct);
 }
