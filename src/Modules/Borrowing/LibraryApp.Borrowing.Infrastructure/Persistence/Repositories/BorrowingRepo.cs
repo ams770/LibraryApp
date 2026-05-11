@@ -23,6 +23,15 @@ public class BorrowingRepo(BorrowingDbContext dbContext) : IBorrowingRepo
         if (query.BookId.HasValue) q = q.Where(item => item.BookId == query.BookId.Value);
         if (query.Status is not null) q = q.Where(item => item.Status.ToString() == query.Status);
 
+        if (query.FromDate.HasValue)
+        {
+            q = q.Where(item => item.BorrowedAt.Date >= query.FromDate.Value.Date);
+        }
+        if (query.ToDate.HasValue)
+        {
+            q = q.Where(item => item.BorrowedAt.Date >= query.ToDate.Value.Date);
+        }
+
         // Apply Pagination
         var totalCount = await q.CountAsync();
         var items = await q

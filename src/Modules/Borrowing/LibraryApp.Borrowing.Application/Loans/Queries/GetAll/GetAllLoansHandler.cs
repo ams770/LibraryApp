@@ -19,6 +19,8 @@ public class GetAllLoansHandler(IBorrowingRepo borrowingRepo) : IRequestHandler<
             SearchTerm = request.SearchTerm,
             BookId = request.BookId,
             MemberId = request.MemberId,
+            FromDate = request.FromDate,
+            ToDate = request.ToDate,
         };
 
         var result = await borrowingRepo.GetAllAsync(query);
