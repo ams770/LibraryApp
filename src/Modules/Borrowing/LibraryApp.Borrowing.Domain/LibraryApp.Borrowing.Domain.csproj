@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\LibraryApp.Shared.Contracts\LibraryApp.Shared.Contracts.csproj" />
     <ProjectReference Include="..\..\..\Shared\LibraryApp.Shared.Domain\LibraryApp.Shared.Domain.csproj" />
   </ItemGroup>
 

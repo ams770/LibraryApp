@@ -1,38 +1,37 @@
-using LibraryApp.Members.Application.Interfaces;
-using LibraryApp.Members.Application.Members.Commands.AddMember;
-using LibraryApp.Members.Contracts.Services;
-using LibraryApp.Members.Domain.Interfaces;
-using LibraryApp.Members.Infrastructure.Persistence;
-using LibraryApp.Members.Infrastructure.Persistence.Repositories;
-using LibraryApp.Members.Infrastructure.Services;
+using LibraryApp.Borrowing.Application.Interfaces;
+using LibraryApp.Borrowing.Application.Loans.Commands.AddLoan;
+using LibraryApp.Borrowing.Contracts.Services;
+using LibraryApp.Borrowing.Domain.Interfaces;
+using LibraryApp.Borrowing.Infrastructure.Persistence;
+using LibraryApp.Borrowing.Infrastructure.Persistence.Repositories;
+using LibraryApp.Borrowing.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace LibraryApp.Members.Infrastructure;
 
-public static class MemberModule
+namespace LibraryApp.Borrowing.Infrastructure;
+
+public static class BorrowingModule
 {
-    public static void AddMemberModule(this IServiceCollection services, IConfiguration configuration)
+    public static void AddBorrowingModule(this IServiceCollection services, IConfiguration configuration)
     {
         // Database
-        services.AddDbContext<MemberDbContext>(opts =>
+        services.AddDbContext<BorrowingDbContext>(opts =>
             opts.UseSqlServer(configuration.GetConnectionString("Default")));
 
         // Repositories
-        services.AddScoped<IMemberRepo, MemberRepo>();
+        services.AddScoped<IBorrowingRepo, BorrowingRepo>();
 
         // Unit of Work
         services.AddScoped<IUnitOfWork, UnitOfWork>();
-
-        // internal module services
-        services.AddScoped<IMemberService, MemberService>();
+        
         // public api
-        services.AddScoped<IMemberApi, MemberApi>();
+        services.AddScoped<IBorrowingApi, BorrowingApi>();
 
         // scans Application layer for all MediatR handlers
         services.AddMediatR(cfg =>
             cfg.RegisterServicesFromAssembly(
-                typeof(AddMemberCommand).Assembly));
+                typeof(AddLoanCommand).Assembly));
     }
 }

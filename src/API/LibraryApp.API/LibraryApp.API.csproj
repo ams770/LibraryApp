@@ -16,6 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Modules\Borrowing\LibraryApp.Borrowing.Contracts\LibraryApp.Borrowing.Contracts.csproj" />
+    <ProjectReference Include="..\..\Modules\Borrowing\LibraryApp.Borrowing.Infrastructure\LibraryApp.Borrowing.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Modules\Catalog\LibraryApp.Catalog.Contracts\LibraryApp.Catalog.Contracts.csproj" />
     <ProjectReference Include="..\..\Modules\Catalog\LibraryApp.Catalog.Infrastructure\LibraryApp.Catalog.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Modules\Members\LibraryApp.Members.Contracts\LibraryApp.Members.Contracts.csproj" />

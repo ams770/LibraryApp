@@ -1,6 +1,6 @@
 namespace LibraryApp.Borrowing.Application.Interfaces;
 
-public class IUnitOfWork
+public interface IUnitOfWork
 {
-    
+    Task SaveChangesAsync(CancellationToken ct = default);
 }

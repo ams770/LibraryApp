@@ -14,8 +14,7 @@ public class MemberDbContext(DbContextOptions<MemberDbContext> options, IPublish
         // isolate schemas -> avoid mising tables with other modules
         modelBuilder.HasDefaultSchema("member");
         //------ Auto-discovers all IEntityTypeConfiguration<T> ------//
-        // no need for now
-        // modelBuilder.ApplyConfigurationsFromAssembly(typeof(MemberDbContext).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(MemberDbContext).Assembly);
     }
 
     public override async Task<int> SaveChangesAsync(CancellationToken ct = default)

@@ -1,14 +1,17 @@
-using LibraryApp.Catalog.Domain.Entities;
+using LibraryApp.Borrowing.Domain.Entities;
 using LibraryApp.Shared.Contracts.Dtos;
 
-namespace LibraryApp.Catalog.Application.Books.Queries.Mappers;
+namespace LibraryApp.Borrowing.Application.Loans.Queries.Mappers;
 
-public static class BookMapper
+public static class LoanMapper
 {
-    public static BookDto ToDto(this Book book) => new(
-        book.Id,
-        book.Title,
-        book.IsAvailable,
-        new AuthorDto(book.AuthorId, book.Author.FullName)
+    public static LoanDto ToDto(this Loan loan) => new(
+        loan.Id,
+        loan.BookId,
+        loan.MemberId,
+        loan.BorrowedAt,
+        loan.ReturnedAt,
+        loan.DueDate,
+        loan.Status.ToString()
     );
 }

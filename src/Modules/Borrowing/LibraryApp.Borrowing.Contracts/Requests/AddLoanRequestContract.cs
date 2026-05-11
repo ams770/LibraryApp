@@ -1,6 +1,3 @@
 namespace LibraryApp.Borrowing.Contracts.Requests;
 
-public class AddLoanRequestContract
-{
-    
-}
+public record AddLoanRequestContract(Guid BookId, Guid MemberId, DateTime DueDate);
