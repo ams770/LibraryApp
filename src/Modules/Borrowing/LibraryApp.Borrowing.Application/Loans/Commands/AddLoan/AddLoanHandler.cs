@@ -16,7 +16,7 @@ public class AddLoanHandler(IBorrowingRepo borrowingRepo, IUnitOfWork unitOfWork
         var book = await catalogService.GetBookByIdAsync(request.BookId, ct);
         if (!book.IsSuccess) return Result<Guid>.Failure("Book not found");
         // Verify Book Available
-        if (book.Value?.IsAvailable ?? false) return Result<Guid>.Failure("Book is not available for borrowing");
+        if (!(book.Value?.IsAvailable ?? false)) return Result<Guid>.Failure("Book is not available for borrowing");
 
         // Create the new loan
         var loan = Loan.Create(request.BookId, request.MemberId, request.DueDate);
